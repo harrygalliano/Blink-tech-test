@@ -1,0 +1,33 @@
+/* HamburgerMenu.css */
+button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  border-left: 1px solid #ccc;
+  width: 200px;
+  height: 100vh;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
