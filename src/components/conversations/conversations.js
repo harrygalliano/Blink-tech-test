@@ -1,5 +1,4 @@
-import "./index.css";
-import importedData from "../src/data/data.json";
+import importedData from "../../data/data.json";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

@@ -7,12 +7,10 @@ export default function HamburgerMenu() {
 
   return (
     <div>
-      {/* Hamburger Icon */}
       <button onClick={() => setIsOpen(!isOpen)}>
         <span>☰</span>
       </button>
 
-      {/* Menu Items */}
       {isOpen && (
         <nav>
           <ul>
