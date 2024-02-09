@@ -6,6 +6,7 @@ If I spent more time on this project there are a few things that I would conside
 - Changing the format of the date time to omit the timezone using a node package such as FNS.
 - Doing some more styling to make it easier to navigate.
 - Adding in some media queiries so that it looks cleaner on a mobile device.
+- Adding some unit tests, I didn't do this as it was a quick and small project that I was able to test myself, but would have been best practice if I had longer than 2 hours.
 
 # Getting Started with Create React App
 
