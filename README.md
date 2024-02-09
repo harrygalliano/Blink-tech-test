@@ -1,3 +1,9 @@
+# Instructions to run
+
+### `npm i`
+
+### `npm start`
+
 # Other thoughts
 
 If I spent more time on this project there are a few things that I would consider important features to add in or chang:
