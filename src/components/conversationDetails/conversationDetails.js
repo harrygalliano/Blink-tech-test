@@ -1,16 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import conversations from "../../data/data.json";
+import conversationsData from "../../data/data.json";
 
 const ConversationDetail = () => {
   const { conversationId } = useParams();
-  const conversation = conversations.find((conv) => conv.id === conversationId);
+  const [conversation, setConversation] = useState(null);
+  const [messageText, setMessageText] = useState("");
 
-  const params = useParams();
-  console.log(params);
-  console.log(conversationId);
-  console.log(typeof id);
-  conversations.forEach((conv) => console.log(typeof conv.id));
+  useEffect(() => {
+    const convo = conversationsData.find((conv) => conv.id === conversationId);
+    setConversation(convo);
+  }, [conversationId]);
+
+  const generateId = () => {
+    return "xxxxxxxxyxxxxxxx".replace(/[xy]/g, function (c) {
+      var r = (Math.random() * 16) | 0,
+        v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  };
+
+  const handleInputChange = (event) => {
+    setMessageText(event.target.value);
+  };
+
+  const handleSendClick = () => {
+    const newMessage = {
+      id: generateId(),
+      text: messageText,
+      last_updated: new Date().toISOString(),
+    };
+
+    if (conversation) {
+      const updatedMessages = [...conversation.messages, newMessage];
+      const updatedConversation = {
+        ...conversation,
+        messages: updatedMessages,
+      };
+      setConversation(updatedConversation);
+    }
+
+    setMessageText("");
+  };
 
   if (!conversation) return <div>Conversation not found</div>;
 
@@ -26,6 +57,15 @@ const ConversationDetail = () => {
           </li>
         ))}
       </ul>
+      <div>
+        <input
+          type="text"
+          value={messageText}
+          onChange={handleInputChange}
+          placeholder="Type your message here..."
+        />
+        <button onClick={handleSendClick}>Send</button>
+      </div>
     </div>
   );
 };

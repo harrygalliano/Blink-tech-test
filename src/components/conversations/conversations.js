@@ -12,7 +12,7 @@ export default function Conversations() {
   console.log(data);
   return (
     <main>
-      <h1>Hi</h1>
+      <h1>List of conversations</h1>
       <ul>
         {data.map((item) => (
           <li key={item.id}>
